@@ -1,3 +1,5 @@
 {{define "body"}}
-this is the body
+TITLE : {{.Title}}
+AUTHOR: {{.Author}}
+{{.Content}}
 {{end}}

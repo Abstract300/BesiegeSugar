@@ -1,5 +1,5 @@
-{{define "base"}} 
+{{define "base"}}
 THIS IS A BASE FILE!!!
-{{template "body"}}
+{{template "body" .}}
 THIS IS THE BASE FILE ENDING!!!!
 {{end}}
