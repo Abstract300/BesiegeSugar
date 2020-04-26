@@ -1,0 +1,5 @@
+{{block "base"}} 
+THIS IS A BASE FILE!!!
+{{template "body"}}
+THIS IS THE BASE FILE ENDING!!!!
+{{end}}
