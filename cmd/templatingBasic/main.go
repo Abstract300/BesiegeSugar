@@ -14,12 +14,8 @@ const (
 )
 
 func main() {
+	post := besiegesugar.ApplyConfig("001-example.cfg")
 	tmpls := filepath.Join(pwd, "*")
-	post := besiegesugar.Post{
-		Title:   "Test title",
-		Author:  "Abstract300",
-		Content: "this is a test content.",
-	}
 	t := template.Must(template.ParseGlob(tmpls))
 	err := t.Execute(os.Stdout, post)
 	if err != nil {

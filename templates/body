@@ -1,5 +1,7 @@
 {{define "body"}}
 TITLE : {{.Title}}
-AUTHOR: {{.Author}}
-{{.Content}}
+DESCRIPTION: {{.Description}}
+KEYWORDS: {{.Keywords}}
+CREATED: {{.Created}}
+UPDATED: {{.Updated}}
 {{end}}
