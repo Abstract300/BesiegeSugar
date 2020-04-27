@@ -2,9 +2,16 @@ package besiegesugar
 
 import (
 	"bufio"
+	"html/template"
+	"io/ioutil"
 	"log"
 	"os"
+	"path/filepath"
 	"strings"
+)
+
+const (
+	tmpls = "/home/abstract300/Programming/BesiegeSugar/templates/"
 )
 
 type Post struct {
@@ -14,6 +21,7 @@ type Post struct {
 	Keywords    string
 	Created     string
 	Updated     string
+	Content     string
 }
 
 func LoadConfig(config string) []string {
@@ -57,4 +65,18 @@ func ApplyConfig(file string) *Post {
 	config.Updated = cnf["updated"]
 
 	return config
+}
+
+func (p *Post) MakePost() {
+
+	content, err := ioutil.ReadFile(p.Filename)
+	if err != nil {
+		log.Fatal(err)
+	}
+	p.Content = string(content)
+	tmplate := template.Must(template.ParseGlob(filepath.Join(tmpls, "*")))
+	err = tmplate.Execute(os.Stdout, p)
+	if err != nil {
+		log.Fatal(err)
+	}
 }

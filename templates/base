@@ -1,5 +1,10 @@
 {{define "base"}}
-THIS IS A BASE FILE!!!
-{{template "body" .}}
-THIS IS THE BASE FILE ENDING!!!!
+<!DOCTYPE html>
+<head>
+	<title>Blog</title>
+</head>
+<body>
+	{{template "body" .}}
+</body>
+</html>
 {{end}}
