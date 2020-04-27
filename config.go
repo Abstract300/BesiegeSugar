@@ -74,8 +74,8 @@ func (p *Post) MakePost() {
 		log.Fatal(err)
 	}
 	p.Content = string(content)
-	tmplate := template.Must(template.ParseGlob(filepath.Join(tmpls, "*")))
-	err = tmplate.Execute(os.Stdout, p)
+	tmplate := template.Must(template.ParseGlob(filepath.Join(tmpls, "*.tmpl")))
+	err = tmplate.ExecuteTemplate(os.Stdout, "body", p)
 	if err != nil {
 		log.Fatal(err)
 	}
